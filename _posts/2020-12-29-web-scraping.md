@@ -36,9 +36,6 @@ Pošto smo već videli u source-u strane da se podaci koji nama trebaju nalaze u
 soup.findAll('a')
 {% endhighlight %}
 
-![I and My friends]({{site.baseurl}}/assets/img/we-in-rest.jpg)
-
-
 
 >Hexagon shoreditch beard, man braid blue bottle green juice thundercats viral migas next level ugh. Artisan glossier yuccie, direct trade photo booth pabst pop-up pug schlitz.
 
