@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Web Scraping
-date: 2020-12-29 13:32:20 +0300
+date: 2019-02-29 13:32:20 +0300
 description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
 img: web-scraping.jpeg # Add image post (optional)
 fig-caption: # Add figcaption (optional)
@@ -33,7 +33,7 @@ Sada je došao trenutak da našu stranu parsiramo sa BeautifulSoup
 {% highlight ruby %}
 soup = BeautifulSoup(response.text, "html.parser")
 {% endhighlight %}
-Pošto smo već videli u source-u strane da se podaci koji nama trebaju nalaze u ‘a’ tagu, upotrebićemo .findAll metodu da pokupimo tekst iz ovih tagova.
+Pošto smo već videli u source-u strane da se podaci koji nama trebaju nalaze u <a> tagu, upotrebićemo .findAll metodu da pokupimo tekst iz ovih tagova.
 {% highlight ruby %}
 soup.findAll('a')
 {% endhighlight %}
@@ -41,15 +41,15 @@ soup.findAll('a')
 Na ovaj način smo pokupili sve linije sa strane koje sadrže a tag. Medjutim, pošto se linkovi do fajlova koji nas zanimaju nalaze tek od 36-e linije, onda se možemo fokusirati na samo na linije od nje. Pa ćemo recimo prvom linku koji je nama interesantan pristupiti na sledeći način.
 
 {% highlight ruby %}
-one_a_tag = soup.findAll(‘a’)[36]
-link = one_a_tag[‘href’]
+one_a_tag = soup.findAll('a')[36]
+link = one_a_tag['href']
 {% endhighlight %}
 
 I na kraju, da bi uradili download ovih fajlova na naš računar koristićemo biblioteku **urllib.request**.
 
 {% highlight ruby %}
-download_url = ‘http://web.mta.info/developers/'+ link
-urllib.request.urlretrieve(download_url,’./’+link[link.find(‘/turnstile_’)+1:]) 
+download_url = 'http://web.mta.info/developers/'+ link
+urllib.request.urlretrieve(download_url,'./'+link[link.find('/turnstile_')+1:]) 
 {% endhighlight %}
 
 Na ovaj način smo uradili download prvog fajla iz liste, "Saturday, February 02, 2019".
